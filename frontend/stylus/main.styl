@@ -1,0 +1,65 @@
+// No styles here please :)
+
+
+@import	"00-toolbox/*"
+@import	"01-elements/*"
+@import	"02-components/*"
+@import	"03-layouts/*"
+@import	"04-pages/*"
+
+
+
+// Use __ for sub-level objects, and -- for style differentiators
+// e.g. .button, .button__text, .button--small, .button__text--small
+
+// NAMESPACES (http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/)
+
+// o- : An object, it can be inherited or extended, styles the skeletal structure of an object rather than cosmetic appearance
+//--------------------------------------------------
+// .0-layout
+// .o-layout__item
+// .o-layout--fixed
+// .o-media
+
+// c- : A component; a piece of concrete, implementation-specific UI; changing styles should not affect any other components
+//--------------------------------------------------
+// .c-component
+// .c-modal
+// .c-modal__title
+// .c-modal--gallery
+
+// u- : A utility class
+//--------------------------------------------------
+// .u-clearfix
+// .u-text-centre
+// .u-font-size-large
+
+// t- : Theme-related class; it lets us know that a UI component's current appearance is due to the application of a theme
+//--------------------------------------------------
+// .t-light
+// .c-button.t-light
+
+// s- : A class to create a new styling context or scope; similar to a theme but not necessarily cosmetic
+//--------------------------------------------------
+// .s-scope-name
+// .s-cms-content (Everything inside the .s-cms-content is inaccessible: we can’t get at the DOM to add any classes to the nodes inside of it, so we might begin styling via a Scope.)
+
+// is-, has- : A class for styling a specific way due to a certain state or condition
+//--------------------------------------------------
+// .is-open
+// .has-dropdown
+
+// _ : A hack... Should not be repeated or re-used
+//--------------------------------------------------
+// ._<namespace>hack-name
+// ._c-footer-mobile
+
+// js- : The element has some JavaScript behaviour applied to it. Not used for styling.
+//--------------------------------------------------
+// .js-component-name
+// .js-modal
+
+// qa- : A reserved hook to highlight that the element is undergoing an automated UI test
+//--------------------------------------------------
+// .qa-node-name
+// .qa-error-login (a class that an automated test can look for)

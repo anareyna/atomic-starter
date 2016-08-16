@@ -1,0 +1,25 @@
+// @name Button
+// @description Standard button.
+// @state :hover - highlights when hovered
+// @state :disabled - dims the button when disabled.
+// @markup
+// <button class="e-button">click me</button>
+.e-button
+	relative()
+	border						none
+	cursor						pointer
+	display						inline-block
+	font-family					$body-font
+	font-size					1rem
+	font-weight					400
+	text-align					center
+	text-decoration				none
+	text-shadow					none
+	transition					$fast-transition
+	background blue
+
+	&:disabled,
+	&[disabled],
+	&.is-disabled
+		cursor					not-allowed
+		opacity					0.5

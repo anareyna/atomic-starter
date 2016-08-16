@@ -1,0 +1,15 @@
+ ✔ compile coffeescript @done (15-11-21 10:36)
+ ✔ compress coffeescript for production @done (15-11-21 10:36)
+ ✔ generate coffeescript source map @done (15-11-21 12:53)
+ ✔ compile react @done (15-11-21 10:46)
+ ✔ compile stylus @done (15-11-21 11:00)
+ ✔ autoprefix styles @done (15-11-21 11:51)
+ ✔ compress stylus for production @done (15-11-21 11:00)
+ ✔ generate stylus sourcemap @done (15-11-21 12:53)
+ ✔ compile jade @done (15-11-21 11:27)
+ ☐ add hashes to assets and rewrite asset names in html
+ ✔ compress images for production @done (15-11-21 13:16)
+ ✔ run dev server @done (15-11-21 15:47)
+ ✔ hot loading / live reload for coffee/stylus @done (15-11-21 16:13)
+ ☐ hot loading for jade
+ ☐ react router & flux

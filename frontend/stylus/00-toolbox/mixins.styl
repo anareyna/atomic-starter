@@ -1,0 +1,220 @@
+convert-to-em($px, $base)
+	if ((unit($px) == '' || unit($px) == 'px') && ($px != 0))
+		return (round($px / $base, 3))em
+	else
+		return 0
+
+convert-to-rem($px, $base)
+	if $is-ie && $is-ie--version <= 8
+		($px)px
+	else if (typeof($px) == "unit")
+		if ((unit($px) == "" || unit($px) == "px") && ($px != 0))
+			return (round($px / $base, 3))rem
+		else
+			return 0
+
+ellipsis($nowrap = true)
+	text-overflow				ellipsis
+	overflow					hidden
+
+	if $nowrap
+		white-space				nowrap
+
+em($value, $base = $base--font-size)
+	$max = length($value)
+
+	$emValues = ()
+	for $i in (0...$max)
+		push($emValues, convert-to-em( $value[$i], $base ))
+
+	return $emValues
+
+font-face($font-name, $file-path, $weight = "normal", $style = "normal")
+
+	$url-fallback = "url('" + $file-path + ".eot')"
+	$url = "url('" + $file-path + ".eot?#iefix') format('embedded-opentype'), "
+	$url = $url + "url('" + $file-path + ".woff') format('woff'), "
+	$url = $url + "url('" + $file-path + ".ttf') format('truetype'), "
+	$url = $url + "url('" + $file-path + ".svg#svg" + $font-name + "') format('svg')"
+
+	@font-face
+		font-family				$font-name
+		font-style				unquote($style)
+		font-weight				unquote($weight)
+		src						unquote($url-fallback)
+		src						unquote($url)
+
+hide-text()
+	overflow					hidden
+	text-indent					110%
+	white-space					nowrap
+
+inline-list()
+	li
+		display					inline-block
+		margin-left				-4px
+
+rem($value, $base = $base--font-size)
+	$max = length($value)
+	$remValues = ()
+	for $i in (0...$max)
+		push($remValues, convert-to-rem( $value[$i], $base ))
+	return $remValues
+
+tracking($val, $base = false)
+	if $base
+		( ( $val * $base ) / 1000 ) px
+	else
+		( $val / 1000 ) em
+
+unstyled-list()
+	list-style					none
+	margin						0
+	padding						0
+
+
+$is-ie ?=						false
+$is-ie--version ?=				0
+
+ie($version, $strict = false)
+	if ($is-ie == true)
+		if($strict == true)
+			if ($is-ie--version == $version)
+				{block}
+		else
+			if ($is-ie--version <= $version)
+				{block}
+
+opacity($n, $args...)
+	opacity: $n $args
+	if $is-ie
+		$val = round($n * 100)
+		+ie(8, true)
+			-ms-filter			"'alpha(opacity=%s)'" % $val $args
+		+ie(7)
+			filter				"alpha(opacity=%s)" % $val $args
+
+percentage($decimal)
+	( $decimal * 100 ) %
+
+ratio($numerator, $denominator)
+	( $numerator / $denominator )
+
+ratio-percentage($numerator, $denominator)
+	( $numerator / $denominator  * 100 ) %
+
+triangle($point = "up", $size = 1em, $color = #777)
+
+	if $size is a "unit" && $color is a "color"
+
+		if $point == "up"
+			triangle-borders({top: "", right: transparent, bottom: solid, left: transparent}, $size, $color)
+		else if $point == "right"
+			triangle-borders({top: transparent, right: "", bottom: transparent, left: solid}, $size, $color)
+		else if $point == "down"
+			triangle-borders({top: solid, right: transparent, bottom: "", left: transparent}, $size, $color)
+		else if $point == "left"
+			triangle-borders({top: transparent, right: solid, bottom: transparent, left: ""}, $size, $color)
+		else if $point == "up-left"
+			$size = ($size / 2)
+			triangle-borders({top: solid, right: transparent, bottom: transparent, left: solid}, $size, $color)
+		else if $point == "up-right"
+			$size = ($size / 2)
+			triangle-borders({top: solid, right: solid, bottom: transparent, left: transparent}, $size, $color)
+		else if $point == "down-right"
+			$size = ($size / 2)
+			triangle-borders({top: transparent, right: solid, bottom: solid, left: transparent}, $size, $color)
+		else if $point == "down-left"
+			$size = ($size / 2)
+			triangle-borders({top: transparent, right: transparent, bottom: solid, left: solid}, $size, $color)
+
+triangle-borders($sides, $size, $color)
+	height						0
+	width						0
+
+	for $side, $style in $sides
+		if $style == solid
+			border-{$side}		$size solid $color
+		else if $style == transparent
+			border-{$side}		$size solid transparent
+
+
+$no-mq ?=						false
+$width--fixed-min ?=			960px
+$width--fixed-max ?=			1200px
+
+absolute()
+	position					absolute
+
+bp($bp, $min-max = "min-width")
+
+	$em = $bp / $base-font-size
+
+	@media ({$min-max}: unit($em, "em"))
+		{block}
+
+clear()
+	clear 						both
+
+clearfix()
+	+ie(7, true)
+		*zoom					1
+
+	&:before,
+	&:after
+		content					""
+		display					table
+
+	&:after
+		clear					both
+
+height-min($height)
+	+media("height", "min", $height)
+		{block}
+
+height-max($height)
+	+media("height", "max", $height)
+		{block}
+
+height-range($min-height, $max-height)
+	+media("height", "range", $min-height, $max-height)
+		{block}
+
+media($direction, $type, $a, $b = false)
+	if ($no-mq == true)
+		+no-media($direction, $type, $a, $b)
+			{block}
+
+	else
+		$mq = ""
+		if ($type == "min" || $type == "max")
+			$mq = "screen and (" + $type + "-" + $direction + ": " + $a + ")"
+		if ($type == "range")
+			$mq = "screen and (min-" + $direction + ": " + $a + ") and (max-" + $direction + ": " + $b + ")"
+
+		@media $mq
+			{block}
+
+no-media($direction, $type, $a, $b)
+	if ($direction == "width")
+		if ($type == "min")
+			if ($width--fixed-min >= $a)
+				{block}
+		else if ($type == "max")
+			if ($width--fixed-max <= $a)
+				{block}
+		else if ($type == "range")
+			if ($width--fixed-min >= $a && $width--fixed-max <= $b)
+				{block}
+
+width-min($width)
+	+media("width", "min", $width)
+		{block}
+
+width-max($width)
+	+media("width", "max", $width)
+		{block}
+
+width-range($min-width, $max-width)
+	+media("width", "range", $min-width, $max-width)
+		{block}

@@ -1,0 +1,74 @@
+/*
+Flex Grid Framework
+Original repository:
+https://github.com/afonsopacifer/flex-grid-framework
+Website:
+https://afonsopacifer.github.io/flex-grid-framework/
+Author:
+Afonso Pacifer (afonsopacifer.com.br)
+Licence:
+MIT - https://github.com/afonsopacifer/flex-grid-framework/blob/master/licence.md
+* /
+
+/* Configs
+------------------------------------------------*/
+max-width				=	1200px
+margin					=	0.52083%
+column					=	7.29177%
+
+/* Box Model
+------------------------------------------------*/
+*
+	box-sizing				border-box
+
+/* Row
+------------------------------------------------*/
+row()
+	display					flex
+	flex-wrap				wrap
+	margin-left				auto
+	margin-right			auto
+	max-width				max-width
+	width					100%
+
+/* Columns
+------------------------------------------------*/
+col(number-of-cols)
+	margin-left				margin
+	margin-right			margin
+	width					(number-of-cols * column) + (((number-of-cols - 1) * 2) * margin)
+
+/* Offset
+------------------------------------------------*/
+offset(number-of-offset)
+	margin-left				(number-of-offset * column) + (((number-of-offset - 1) * 2) * margin) + (3 * margin)
+
+/* Flex Container
+------------------------------------------------*/
+content-align(content-value)
+	if (content-value == left)
+		justify-content		flex-start
+
+	if (content-value == right)
+		justify-content		flex-end
+
+	if (content-value == center)
+		justify-content		center
+
+	if (content-value == between)
+		justify-content		space-between
+
+	if (content-value == around)
+		justify-content		space-around
+
+/* Flex Itens
+------------------------------------------------*/
+vertical-align(vertical-value)
+	if (vertical-value == top)
+		align-items			flex-start
+
+	if (vertical-value == middle)
+		align-items			center
+
+	if (vertical-value == bottom)
+		align-items			flex-end

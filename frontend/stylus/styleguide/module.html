@@ -1,0 +1,35 @@
+<section class="c-styleguide__section">
+
+	<h2 class="c-styleguide__section__header">{{ name }}</h2>
+
+	<p>{{ description }}</p>
+
+	<section class="c-styleguide__subsection">
+
+		<h3 class="c-styleguide__subsection__header">States</h3>
+
+		<ul class="c-styleguide__states">
+			{% for s in state %}
+				<li>
+					<code>{{ s.name }}</code> - {{ s.description }}
+				</li>
+			{% endfor %}
+		</ul>
+
+	</section>
+
+	<section class="c-styleguide__subsection">
+
+		<h3 class="c-styleguide__subsection__header">Example</h3>
+
+		<div class="c-styleguide__example">
+			{{ markup.example | safe }}
+		</div>
+
+		<pre class="c-styleguide__markup">
+{{ markup.escaped }}
+		</pre>
+
+	</section>
+
+</section>
