@@ -6,20 +6,20 @@ PathRewriterPlugin = require "webpack-path-rewriter"
 webpack = require "webpack"
 
 KssConfig = {
-	source: "frontend/stylus"
-	destination: "frontend/stylus/styleguide"
+	source: "stylus"
+	destination: "stylus/styleguide"
 	css: "../../../dist/styles/main.min.css"
 }
 module.exports =
 	entry: [
 		"webpack/hot/dev-server"
 		"webpack-dev-server/client?http://localhost:8080"
-		path.resolve(__dirname, "frontend/coffeescript/main")
-		path.resolve(__dirname, "frontend/jade/index.jade")
+		path.resolve(__dirname, "coffeescript/main")
+		path.resolve(__dirname, "jade/index.jade")
 	],
 	output:
 		filename: "main.min.js"
-		path: path.join(__dirname, "dist/scripts")
+		path: path.join(__dirname, "../dist/scripts")
 		publicPath: "/"
 	module: loaders: [
 		test: /\.coffee$/
