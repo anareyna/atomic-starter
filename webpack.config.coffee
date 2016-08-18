@@ -1,9 +1,15 @@
 CleanWebpackPlugin = require "clean-webpack-plugin"
 ExtractTextPlugin = require "extract-text-webpack-plugin"
+KssWebpackPlugin = require 'kss-webpack-plugin'
 path = require "path"
 PathRewriterPlugin = require "webpack-path-rewriter"
 webpack = require "webpack"
 
+KssConfig = {
+	source: "frontend/stylus"
+	destination: "frontend/stylus/styleguide"
+	css: "../../../dist/styles/main.min.css"
+}
 module.exports =
 	entry: [
 		"webpack/hot/dev-server"
@@ -39,6 +45,7 @@ module.exports =
 			allChunks: true
 		new PathRewriterPlugin()
 		new webpack.HotModuleReplacementPlugin()
+		new KssWebpackPlugin(KssConfig)
 	]
 	resolve:
 		extensions: ["", ".js", ".coffee", ".json", ".jsx", ".cjsx"]

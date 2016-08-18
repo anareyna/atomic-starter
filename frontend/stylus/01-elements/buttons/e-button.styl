@@ -1,23 +1,26 @@
-// @name Button
-// @description Standard button.
-// @state :hover - highlights when hovered
-// @state :disabled - dims the button when disabled.
-// @markup
-// <button class="e-button">click me</button>
+// Buttons
+//
+// Botones para Ofertop
+//
+// Markup:
+// <button class="e-button">Botón</button>
+// <a class="e-button">Botón Link</a>
+//
+// .primary   - Use this class to indicate that the button is the primary
+//              feature of this form.
+// .remove    - Use this class to indicate that the button will remove a
+//              feature, or other negative connotations.
+// :hover     - Highlight the button when hovered.
+// :disabled  - Make the button change appearance to reflect it being disabled.
+// :active    - "Press" the button down when clicked.
+//
+// Style guide: demo.components.buttons
 .e-button
-	relative()
-	border						none
-	cursor						pointer
-	display						inline-block
-	font-family					$body-font
-	font-size					1rem
-	font-weight					400
-	text-align					center
-	text-decoration				none
-	text-shadow					none
-	transition					$fast-transition
+	border none
+	padding 10px
+	border-radius 4px
 	background blue
-
+	color white
 	&:disabled,
 	&[disabled],
 	&.is-disabled
