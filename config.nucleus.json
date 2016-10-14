@@ -1,0 +1,10 @@
+{
+	"title": "Nucleus",
+	"files": ["src/patterns/*.scss", "src/patterns/**/*.scss"],
+	"target": "styleguide",
+	"css": "../dist/css/styles.css",
+	"namespace": "page",
+	"verbose": 3,
+	"counterCSS": null,
+	"staticLipsum": false
+}

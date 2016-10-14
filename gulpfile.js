@@ -30,13 +30,13 @@ var config = {
 
 var path = {
 
-	src_html: 'patterns/_04-pages/html/',
-	src_css: 'patterns/',
-	src_js: 'pre_js/',
-	src_img: 'assets/img/',
-	src_fonts: 'assets/fonts/',
-	src_icons: 'assets/icons/',
-	src_sprite: 'assets/img/sprite/*.png',
+	src_html: 'src/patterns/_04-pages/html/',
+	src_css: 'src/patterns/',
+	src_js: 'src/pre_js/',
+	src_img: 'src/assets/img/',
+	src_fonts: 'src/assets/fonts/',
+	src_icons: 'src/assets/icons/',
+	src_sprite: 'src/assets/img/sprite/*.png',
 
 	dist: './dist/',
 	dist_html: './dist/',

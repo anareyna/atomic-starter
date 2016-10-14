@@ -1,0 +1,48 @@
+/**
+ * Variable de breakpoints para slicer breakpoint.
+ * Docs: https://github.com/lolmaus/breakpoint-slicer
+ *
+ * @nuclide slicer-breakpoints
+ * @section variables
+ */
+$slicer-breakpoints: 0  400px  600px  800px  1050px;
+
+/**
+ * Variable personalizada de tamaños para slicer breakpoint que corresponden a los breakpoints de $slicer-breakpoints.
+ * Docs: https://github.com/lolmaus/breakpoint-slicer
+ *
+ * @nuclide slicer-breakpoint-names
+ * @section variables
+ */
+$slicer-breakpoint-names:  'xs' 's' 'm' 'l' 'xl';
+
+/** @color Color principal */
+$brand_color : #2232c3;
+
+/** @color Color complementario */
+$secondary_color : tomato;
+
+/** @color Color de la fuente */
+$font_color : black;
+
+/**
+ * Ancho del contenedor del sitio
+ *
+ * @nuclide container_width
+ * @section variables
+ */
+$container_width : 1140px;
+
+$border_radius : 5px;
+$transition: 0.3s all ease-in;
+$input_height: 2.5rem;
+
+$family1:  'Lato', 'arial', 'sans-serif';
+
+/**
+ * El tamaño de fuente base para <html>
+ *
+ * @nuclide base_font
+ * @section variables
+ */
+$base_font: 16px;

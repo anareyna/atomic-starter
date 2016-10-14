@@ -1,9 +1,23 @@
+/**
+ * @atom Botón
+ * @section Navigation > Botones
+ * @description
+ *  Botones del sitio.
+ * @markup
+ *   <button class="e-button">Un botón</button>
+ *   <a class="e-button">
+ *     Un botón tipo link
+ *   </a>
+ *	<input type="submit" class="e-button" value="Un valor del botón" />
+ */
+
 .e-button {
 	background: $brand_color;
 	border: none;
 	border-radius: $border_radius;
 	color: white;
 	outline: none;
+	font-family: $family1;
 	transition: $transition;
 	cursor: pointer;
 	font-size: 1rem;

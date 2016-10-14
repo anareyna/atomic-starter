@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Ana Reyna @anareyna",
   "license": "MIT",
+  "scripts": {
+    "docs-init": "./node_modules/.bin/nucleus init",
+    "docs-config": "./node_modules/.bin/nucleus  --config config.nucleus.json",
+    "docs": "./node_modules/.bin/nucleus"
+  },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-cli": "6.16.0",
@@ -34,6 +39,7 @@
     "jshint-stylish": "2.0.1",
     "lodash": "3.10.1",
     "lost": "^7.0.3",
+    "nucleus-styleguide": "^1.0.7",
     "run-sequence": "1.1.2"
   }
 }

@@ -1,0 +1,30 @@
+
+/**
+ * Usar este mixin para dispositivos 'xs'
+ * @mixin responsive
+ * @section Responsive
+ * @example
+ *   @include mobile {
+ *   };
+ */
+
+@mixin mobile() {
+    @include at('xs') {
+        @content
+    }
+}
+
+/**
+ * Usar este mixin para dispositivos de tamaños entre 's' y 'l'
+ * @mixin responsive
+ * @section Responsive
+ * @example
+ *   @include tablet {
+ *   };
+ */
+
+@mixin tablet() {
+    @include between('s', 'l') {
+        @content
+    }
+}
