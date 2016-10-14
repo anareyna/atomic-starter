@@ -1,4 +1,9 @@
-/dist
-.DS_Store
+# Dependency directory
 node_modules
-npm-debug.log
+
+# dist folder
+dist/
+
+# zip files
+*.zip
+*.tmp

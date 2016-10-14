@@ -1,0 +1,13 @@
+@import "../patterns/**/*.scss";
+@import 'breakpoint';
+@import 'breakpoint-slicer';
+
+
+body {
+    @include mobile {
+        background: indianred;
+    }
+    @include tablet {
+        background: tomato;
+    }
+}
