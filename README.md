@@ -1,6 +1,6 @@
 # Atomic Starter
 
-> Folder structure for atomic design projects inspired by Brad Frost book. (WIP)
+> Folder structure for atomic design projects inspired by Brad Frost's book. (WIP)
 
 ## Installation
 
@@ -85,7 +85,7 @@ This will compile to html all the `.pug` files in `src/html/` and place them int
 
 ### Compile Js
 ```
-	gulp Js
+	gulp js
 ```
 This will transpile all the `.js` files in `src/js/` and concatenate them to a single file located in `dist/js/app.js`. It supports ES6. If you want to use any js plugin it's recommended that you do so by using [bower](http://bower.io).
 
@@ -98,7 +98,7 @@ This task will create the `sprite.png` located at `dist/img/` which will also be
 In order to use the mixin that this task creates you have to follow this structure in any of your `.scss` files.
 ```
 .ico {
-	sprite($ico1);
+	@include sprite($ico1);
 }
 ```
 Which will render to css. Notice that the `$ico1` variable name has to be the same as your image file name `src/assets/img/sprite/img1.png`.
@@ -145,7 +145,6 @@ https://holidaypirates.github.io/nucleus/
 * [Pug](http://pugjs.org/)
 * [Sass](http://sass-lang.com/) also uses [Lost (Grid System)](https://github.com/peterramsing/lost) and [Breakpoint Slider (Media queries)](https://github.com/lolmaus/breakpoint-slicer)
 * [Nucleus](https://holidaypirates.github.io/nucleus/)
-
 * [Gulp](http://gulpjs.com/)
 * [Bower](http://bower.io)
 
