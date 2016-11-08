@@ -1,0 +1,16 @@
+.l-header {
+	.l-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		flex-grow: 1;
+	}
+
+	&__logo-img {
+		max-width: 50px;
+	}
+
+}

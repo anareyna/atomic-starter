@@ -1,6 +1,6 @@
 {
 	"title": "Nucleus",
-	"files": ["src/patterns/*.scss", "src/patterns/**/*.scss"],
+	"files": ["src/css/*.scss", "src/css/**/*.scss"],
 	"target": "styleguide",
 	"css": "../dist/css/styles.css",
 	"namespace": "page",

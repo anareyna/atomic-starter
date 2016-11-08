@@ -30,7 +30,7 @@ var config = {
 }
 
 var path = {
-
+	src_assets: 'src/assets/',
 	src_html: 'src/html/_04-pages/',
 	src_css: 'src/css/',
 	src_js: 'src/js/',
@@ -44,6 +44,7 @@ var path = {
 	dist_css: './dist/css/',
 	dist_js: './dist/js/',
 	dist_img: './dist/img/',
+	dist_fonts: './dist/fonts/',
 	bower: './dist/js/libs/'
 };
 
@@ -78,8 +79,8 @@ gulp.task('css', function () {
 gulp.task('html', function() {
 	gulp.src([
 		path.src_html + '*.pug',
-		path.src_html + '**/**/*.pug',
 		path.src_html + '**/*.pug',
+		path.src_html + '**/**/*.pug',
 		'!' + path.src_html + '_**/*.pug',
 		'!' + path.src_html + '/**/_**/*.pug',
 		'!' + path.src_html + '/**/_*.pug'
@@ -133,6 +134,16 @@ gulp.task('sprite', function () {
 	spriteData.css.pipe(gulp.dest(path.src_css + '_00-toolbox/'));
 });
 
+gulp.task('imagemin', function () {
+	return gulp.src(path.src_img + '**.{gif,jpg,png,svg}')
+	.pipe(imagemin({
+		progressive: true,
+		// svgoPlugins: [{removeViewBox: false}],
+		use: [pngquant()]
+	}))
+	.pipe(gulp.dest(path.dist_img));
+	});
+
 
 gulp.task('fonts:compile', function(cb){
 	var dirList = []
@@ -164,13 +175,11 @@ gulp.task('icons:compile', function(cb){
 		.pipe(gulp.dest(path.src_fonts + 'iconFonts'));
 });
 
-gulp.task('fonts:copy', function() {
-	return gulp.src(
-			path.frontend + 'fonts/**/*.*',
-				{ base : path.frontend })
-		.pipe(gulp.dest(path.dist_html));
-});
 
+gulp.task('fonts:copy', function() {
+	return gulp.src(path.src_fonts + '**/*.{ttf,woff,woff2,eof,svg}')
+	.pipe(gulp.dest(path.dist_fonts));
+});
 
 gulp.task('bower', function() {
 	return bower();
@@ -188,7 +197,7 @@ gulp.task('browserSync', function(){
 gulp.task('watch', function() {
 	gulp.start('browserSync');
 	gulp.watch([path.src_css + '**/*.scss', path.src_css + '**/**/*.scss'], ['css', browserSync.reload]);
-	gulp.watch([path.src_html + '**/*.pug'], ['html', browserSync.reload]);
+	gulp.watch([path.src_html + '*.pug', path.src_html + '**/*.pug', path.src_html + '**/**/*.pug'], ['html', browserSync.reload]);
 	gulp.watch([path.src_js + '**/*.js'], ['js', browserSync.reload]);
 });
 
@@ -199,5 +208,5 @@ gulp.task('icons', function(cb){
 	runSequence('icons:compile', 'fonts:compile', 'css', 'fonts:copy', cb)
 });
 gulp.task('default', function(cb) {
-	runSequence('bower', 'html', 'css', 'js', cb);
+	runSequence('bower', 'html', 'css', 'js', 'fonts', 'icons', 'sprite', 'imagemin', cb);
 });

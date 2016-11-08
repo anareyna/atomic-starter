@@ -1,2 +1,4 @@
 header.l-header
-	p header
+	.l-container
+		a.l-header__logo(href!=`${page.url.base}`)
+			img.l-header__logo-img(src!=`${page.url.image}logo.png`)

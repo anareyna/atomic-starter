@@ -1,7 +1,6 @@
-@import "**/*.scss";
 @import 'breakpoint';
 @import 'breakpoint-slicer';
-
+@import "**/*.scss";
 
 body {
     @include mobile {
