@@ -1,0 +1,14 @@
+include /_00-toolbox/config/page
+
+doctype
+html(lang="es")
+	include  /_00-toolbox/partials/head
+	include  /_00-toolbox/partials/head_scripts
+	include /_00-toolbox/mixins/mixins
+	include /_01-elements/e-mixins
+	include /_02-components/c-mixins
+	body
+		include /_03-layouts/l-header
+		block content
+		include /_03-layouts/l-footer
+		include /_00-toolbox/partials/footer_scripts

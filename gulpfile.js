@@ -23,7 +23,7 @@ var autoprefixer = require('autoprefixer');
 var lost = require('lost');
 var bower = require('gulp-bower');
 var fs = require('fs');
-var basePug  = __dirname + "/src/patterns";
+var baseHtml  = __dirname + "/src/html";
 
 var config = {
 	is_minified: false
@@ -31,8 +31,8 @@ var config = {
 
 var path = {
 
-	src_html: 'src/patterns/_04-pages/html/',
-	src_css: 'src/patterns/',
+	src_html: 'src/html/_04-pages/',
+	src_css: 'src/css/',
 	src_js: 'src/js/',
 	src_img: 'src/assets/img/',
 	src_fonts: 'src/assets/fonts/',
@@ -87,7 +87,7 @@ gulp.task('html', function() {
 		.pipe(plumberNotifier())
 		.pipe(pug({
 			pretty : config.is_minified,
-			basedir: basePug
+			basedir: baseHtml
 		}))
 		// .pipe(rename({
 		//     extname: ".phtml"
@@ -130,7 +130,7 @@ gulp.task('sprite', function () {
 	// Pipe image stream through image optimizer and onto disk
 	spriteData.img.pipe(gulp.dest(path.dist_img));
 	//spriteData.img.pipe(gulp.dest(path.src_img)); // No optimization
-	spriteData.css.pipe(gulp.dest(path.src_css + '_00-toolbox/css/'));
+	spriteData.css.pipe(gulp.dest(path.src_css + '_00-toolbox/'));
 });
 
 
@@ -159,7 +159,7 @@ gulp.task('icons:compile', function(cb){
 				glyphs: codepoints,
 				fontName: 'iconFonts'
 			}))
-			.pipe(gulp.dest(path.src_css + '_00-toolbox/css'));
+			.pipe(gulp.dest(path.src_css + '_00-toolbox/'));
 		})
 		.pipe(gulp.dest(path.src_fonts + 'iconFonts'));
 });
