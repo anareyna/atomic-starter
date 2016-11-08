@@ -23,6 +23,7 @@ var autoprefixer = require('autoprefixer');
 var lost = require('lost');
 var bower = require('gulp-bower');
 var fs = require('fs');
+var basePug  = __dirname + "/src/patterns";
 
 var config = {
 	is_minified: false
@@ -32,7 +33,7 @@ var path = {
 
 	src_html: 'src/patterns/_04-pages/html/',
 	src_css: 'src/patterns/',
-	src_js: 'src/pre_js/',
+	src_js: 'src/js/',
 	src_img: 'src/assets/img/',
 	src_fonts: 'src/assets/fonts/',
 	src_icons: 'src/assets/icons/',
@@ -85,7 +86,8 @@ gulp.task('html', function() {
 		])
 		.pipe(plumberNotifier())
 		.pipe(pug({
-			pretty : config.is_minified
+			pretty : config.is_minified,
+			basedir: basePug
 		}))
 		// .pipe(rename({
 		//     extname: ".phtml"
