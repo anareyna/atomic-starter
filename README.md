@@ -8,17 +8,17 @@ To get started, make sure you have [node.js](http://nodejs.org/) installed.
 Open the terminal and change directory to `atomic-starter/`.
 
 * Install npm dependencies.
-		```
-		npm install
-		```
+```
+npm install
+```
 * Run all the default gulp tasks.
-		```
-		gulp
-		```
+```
+gulp
+```
 * Open project in browser and watch for file changes.
-		```
-		gulp watch
-		```
+```
+gulp watch
+```
 
 ## Start coding
 
@@ -35,6 +35,7 @@ atomic-starter/
 		├── html/
 		└── js/
 ```
+
 Inside the `src/css` and `src/html` folders we have a similar folder structure that follows the atomic design principles:
 ```
 css/
@@ -46,7 +47,7 @@ css/
 
 ```
 
-We have 4 levels of abstraction in this proposal for an atomic design project based on http://bradfrost.com/blog/post/atomic-web-design/
+We have 4 levels of abstraction in this proposal based on http://bradfrost.com/blog/post/atomic-web-design/
 ```
 Level 1: Elements (Atoms)
 Level 2: Components (Molecules)
@@ -73,60 +74,59 @@ In the terminal make sure you are in the `atomic-starter/` directory.
 
 ### Compile Sass
 ```
-	gulp css
+gulp css
 ```
 This will compile all the `.scss` files in `src/css/` and concatenate them to a single file located in `dist/css/styles.css`, except for `fonts.scss` which will be compiled to a separared css file `dist/css/fonts.css`.
 
 ### Compile Pug
 ```
-	gulp html
+gulp html
 ```
 This will compile to html all the `.pug` files in `src/html/` and place them into the folder located in `dist/`.
 
-### Compile Js
+### Compile Javascript
 ```
-	gulp js
+gulp js
 ```
-This will transpile all the `.js` files in `src/js/` and concatenate them to a single file located in `dist/js/app.js`. It supports ES6. If you want to use any js plugin it's recommended that you do so by using [bower](http://bower.io).
+This will transpile all the `.js` files in `src/js/` export it to a file located in `dist/js/app.js`. It supports ES6. You can install js plugins with [bower](http://bower.io).
 
 ### Generate sprites
 
 ```
-	gulp sprite
+gulp sprite
 ```
 This task will create the `sprite.png` located at `dist/img/` which will also be the optimized (minified) image version.
 In order to use the mixin that this task creates you have to follow this structure in any of your `.scss` files.
 ```
-.ico {
-	@include sprite($ico1);
+.icon {
+	@include sprite($iconName);
 }
 ```
-Which will render to css. Notice that the `$ico1` variable name has to be the same as your image file name `src/assets/img/sprite/img1.png`.
+Which will render to css. Notice that the `$iconName` variable name has to be the same as your image file name `src/assets/img/sprite/iconName.png`.
 
 ## Generate icons
 
 ```
-		gulp icons
+gulp icons
 ```
 This task will generate the `iconFont` font for the icons that you can place in the `src/assets/icons/` with the `*.svg` extension.
 
 ## Generate font styles
 ```
-		gulp fonts
+gulp fonts
 ```
 This task will generate the styles for the fonts placed in the `src/assets/fonts/` folder.
 
 ### Minimize images
 ```
-	gulp imagemin
+gulp imagemin
 ```
 This task will create a copy of all your image files located in `src/assets/img/` and create an optimized and lighter version in the folder `dist/img/`.
 
 
-
 ### Run all tasks
 ```
-	gulp
+gulp
 ```
 This task runs all the previous tasks.
 
@@ -134,16 +134,16 @@ This task runs all the previous tasks.
 ## Styleguide
 
 ```
-		npm run styleguide
+npm run styleguide
 ```
 
-This will generate automatically a living styleguide in `styleguide/` folder with Nucleus based on your css comments. For more information visit: 
+This will generate a living styleguide with Nucleus in the `styleguide/` folder based on your DocBlock annotations. For more information visit: 
 
 https://holidaypirates.github.io/nucleus/
 
 ## Resources
 * [Pug](http://pugjs.org/)
-* [Sass](http://sass-lang.com/) also uses [Lost (Grid System)](https://github.com/peterramsing/lost) and [Breakpoint Slider (Media queries)](https://github.com/lolmaus/breakpoint-slicer)
+* [Sass](http://sass-lang.com/) also uses [Lost (Grid System)](https://github.com/peterramsing/lost) and [Breakpoint Slicer (Media queries)](https://github.com/lolmaus/breakpoint-slicer)
 * [Nucleus](https://holidaypirates.github.io/nucleus/)
 * [Gulp](http://gulpjs.com/)
 * [Bower](http://bower.io)
